@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const Search = () => {
+const Search = (props) => {
   const [term, setTerm] = useState("Cars");
   const [debouncedTerm, setDebouncedTerm] = useState(term);
   const [results, setResults] = useState([]);
@@ -47,7 +47,7 @@ const Search = () => {
           </a>
         </div>
         <div className="content">
-          <div className="header">{result.title}</div>
+          <div className="header" style={{color:props.color.value}}>{result.title}</div>
           <span dangerouslySetInnerHTML={{ __html: result.snippet }}></span>
         </div>
       </div>
