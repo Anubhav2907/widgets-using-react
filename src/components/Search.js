@@ -47,7 +47,7 @@ const Search = (props) => {
           </a>
         </div>
         <div className="content">
-          <div className="header" style={{color:props.color.value}}>{result.title}</div>
+          <div className="header">{result.title}</div>
           <span dangerouslySetInnerHTML={{ __html: result.snippet }}></span>
         </div>
       </div>

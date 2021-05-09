@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import Acccordian from "./components/Accordion";
+import Accordian from "./components/Accordion";
 import Search from "./components/Search";
 import Dropdown from "./components/Dropdown";
 import Translate from "./components/Translate";
+import Route from "./components/Route";
+import Header from "./components/Header";
 
 const items = [
   {
@@ -33,27 +35,29 @@ const options = [
     value: "blue",
   },
 ];
+
 const App = () => {
-    const [selected, setSelected] = useState(options[0]);
-    const [showDropdown, setShowDropdown] = useState(true);
+  const [selected, setSelected] = useState(options[0]);
+  // const [showDropdown, setShowDropdown] = useState(true);
   return (
     <div>
-      {/* <Acccordian items={items}></Acccordian> */}
-      {/* <Search color={selected}></Search> */}
-      {/* <button
-        className="ui button"
-        onClick={() => setShowDropdown(!showDropdown)}
-      >
-        Toggle Dropdown
-      </button>
-      {showDropdown ? (
+      <Header></Header>
+      <Route path="/">
+        <Accordian items={items}></Accordian>
+      </Route>
+      <Route path="/list">
+        <Search></Search>
+      </Route>
+      <Route path="/dropdown">
         <Dropdown
           options={options}
           onSelectedChange={setSelected}
           selected={selected}
         ></Dropdown>
-      ) : null} */}
-      <Translate></Translate>
+      </Route>
+      <Route path="/translate">
+        <Translate></Translate>
+      </Route>
     </div>
   );
 };
